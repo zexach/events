@@ -11,7 +11,8 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/events")
+@CrossOrigin(origins = "*", maxAge = 3600)
+@RequestMapping("/api/v1/events")
 public class EventController {
 
     private final EventService eventService;
@@ -37,7 +38,7 @@ public class EventController {
     }
 
     @PutMapping("/{id}")
-    public String updateEvnet(@PathVariable("id") Integer id, @RequestBody EventRequest eventRequest){
+    public String updateEvent(@PathVariable("id") Integer id, @RequestBody EventRequest eventRequest){
         eventService.updateEvent(id, eventRequest);
         return "Event updated successfully";
     }

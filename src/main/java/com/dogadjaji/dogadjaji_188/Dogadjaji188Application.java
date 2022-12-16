@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Date;
 
 @SpringBootApplication
-@RestController
-@RequestMapping("/api/events")
 public class Dogadjaji188Application {
 
     public static void main(String[] args) {

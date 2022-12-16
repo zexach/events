@@ -30,17 +30,17 @@ public class EventService {
     }
     public void addEvent(EventRequest eventRequest){
 
-        /*Location location = locationRepository.findById(eventRequest.getLocationID()).orElseThrow();
+        Location location = locationRepository.findById(eventRequest.getLocationID()).orElseThrow();
 
-        Category category = categoryRepository.findById(eventRequest.getCategoryID()).orElseThrow();*/
+        Category category = categoryRepository.findById(eventRequest.getCategoryID()).orElseThrow();
 
         Event event = new Event();
         event.setName(eventRequest.getName());
         event.setDescription(eventRequest.getDescription());
         event.setDate(eventRequest.getDate());
         event.setImgUrl(eventRequest.getImgUrl());
-        //event.setLocation(location);
-        //event.setCategory(category);
+        event.setLocation(location);
+        event.setCategory(category);
 
         eventsRepository.save(event);
     }

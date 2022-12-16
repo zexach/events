@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -32,4 +33,7 @@ public class Event {
     @ManyToOne()
     @JoinColumn(name = "categoryID")
     private Category category;
+
+    @OneToMany(mappedBy = "event",cascade = CascadeType.ALL,fetch = FetchType.EAGER, orphanRemoval = true)
+    private List<Comment> comments;
 }
